@@ -1,0 +1,37 @@
+<?php
+// No direct access to this file
+defined('_JEXEC') or die('Restricted access');
+ 
+// import Joomla controller library
+jimport('joomla.application.component.controller');
+ 
+class MdContactController extends JController
+{
+	function mailer()
+	{
+		$from = array($_POST["email"], $_POST["yourname"]);
+# set emailadres from the site		
+		$config =& JFactory::getConfig();
+		$to = array(
+				$config->getValue( 'config.mailfrom' ),
+				$config->getValue( 'config.fromname' ) );
+# Set some variables for the email message
+$subject = "Vraag via de website";
+		$copy = $_POST["copy"];
+		$body = $_POST["message"];
+ 
+# Invoke JMail Class
+$mailer = JFactory::getMailer();
+ 
+# Set sender array so that my name will show up neatly in your inbox
+$mailer->setSender($from);
+$mailer->addRecipient($to);
+# Set cc if copy is checked
+if ($copy=="copy"){
+$mailer->addCC($from);}
+$mailer->setSubject($subject);
+$mailer->setBody($body);
+$mailer->isHTML();
+$mailer->send();
+	}
+}

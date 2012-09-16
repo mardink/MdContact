@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="updmdcontact">
+	<fieldset name="updmdcontact">
+
+        <field
+            name="id"
+            type="sql"
+            multiple="false"
+            size="1"
+            label="COM_MDCONTACT_FORM_LBL_UPDMDCONTACT_ID"
+            description="COM_MDCONTACT_FORM_DESC_UPDMDCONTACT_ID"
+            query="select id, greeting from #__mdcontact"
+            key_field="id"
+            value_field="greeting"
+            default="0"
+			required="true"
+            >
+                <option value="">JOPTION_SELECT_ID</option>
+        </field>
+
+		<field
+            name="greeting"
+            type="text"
+			description="COM_MDCONTACT_FORM_DESC_UPDMDCONTACT_GREETING"
+			label="COM_MDCONTACT_FORM_LBL_UPDMDCONTACT_GREETING"
+			required="true"
+			size="50"
+		/>
+
+	</fieldset>
+</form>
