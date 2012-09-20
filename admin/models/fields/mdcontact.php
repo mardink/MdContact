@@ -27,7 +27,7 @@ class JFormFieldMdContact extends JFormFieldList
 	{
 		$db = JFactory::getDBO();
 		$query = $db->getQuery(true);
-		$query->select('#__mdcontact.id as id,name,#__categories.title as category,catid');
+		$query->select('#__mdcontact.id as id,greeting,#__categories.title as category,catid');
 		$query->from('#__mdcontact');
 		$query->leftJoin('#__categories on catid=#__categories.id');
 		$db->setQuery((string)$query);

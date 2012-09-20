@@ -23,7 +23,7 @@ JHtml::_('behavior.keepalive');
 </div>
 <div class="span4">
 <p>Fill in the form and we will contact you as soon as possible</p>
-<form class="form" action="index.php?option=com_helloworld&task=mailer" method="post" >
+<form class="form" action="index.php?option=com_mdcontact&task=mailer" method="post" >
   <input type="text" name="yourname" id="yourname" placeholder="Your name…">
   <div class="control-group">
     <label class="control-label" for="inputEmail"></label>

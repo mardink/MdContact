@@ -11,7 +11,7 @@ defined('_JEXEC') or die('Restricted Access');
 			<?php echo JHtml::_('grid.id', $i, $item->id); ?>
 		</td>
 		<td>
-			<?php echo $item->name; ?>
+			<?php echo $item->greeting; ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
