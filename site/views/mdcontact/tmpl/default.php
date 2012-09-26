@@ -9,6 +9,7 @@
 // no direct access
 defined('_JEXEC') or die;
 JHtml::_('behavior.keepalive');
+JHTML::_('behavior.formvalidation');
 ?>
 <div class="container-fluid component_blok">
 <div class="row-fluid">
@@ -23,19 +24,20 @@ JHtml::_('behavior.keepalive');
 </div>
 <div class="span4">
 <p>Fill in the form and we will contact you as soon as possible</p>
-<form class="form" action="index.php?option=com_mdcontact&task=mailer" method="post" >
+<form id="mdcontactform" class="form form-validate" action="index.php?option=com_mdcontact&task=mailer" method="post" >
   <input type="text" name="yourname" id="yourname" placeholder="Your name…">
   <div class="control-group">
     <label class="control-label" for="inputEmail"></label>
     <div class="controls">
-      <input type="text" name="email" id="inputEmail" placeholder="Emailadress..">
+      <input type="text" name="email" id="inputEmail" class="required validate-email"placeholder="Emailadress..">
     </div>
   </div>
-  <textarea type="text" rows="3" name="message" id="message" placeholder="Type your message…"></textarea>
+  <textarea type="text" rows="3" name="message" id="message" class="required" placeholder="Type your message…"></textarea>
   <div class="control-group">
     <div class="controls">
       <label class="checkbox">
         <input type="checkbox" name="copy" value="copy"> Send a copy of this message to yourself</label>
+        <?php echo JHTML::_( 'form.token' ); ?>
       <button type="submit" class="btn">Send</button>
     </div>
   </div>

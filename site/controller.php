@@ -33,5 +33,16 @@ $mailer->setSubject($subject);
 $mailer->setBody($body);
 $mailer->isHTML();
 $mailer->send();
+$send =& $mailer->Send();
+if ( $send !== true ) {
+	JFactory::getApplication()->enqueueMessage('Your message is not send, please try again later');
+} else {
+	JFactory::getApplication()->enqueueMessage('Your message is succesfully send');
+}
+
+# Set the view
+#$link = JRoute::_('index.php?option=com_mdcontact&view=mdcontact&id=1', false);
+#$msg = 'Message is succesfully send';
+#$this->setRedirect($link, $msg);
 	}
 }
