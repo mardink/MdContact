@@ -32,7 +32,7 @@ JHTML::_('behavior.formvalidation');
       <input type="text" name="email" id="inputEmail" class="required validate-email"placeholder="Emailadress..">
     </div>
   </div>
-  <textarea type="text" rows="3" name="message" id="message" class="required" placeholder="Type your message…"></textarea>
+  <textarea type="text" rows="5" name="message" id="message" class="required" placeholder="Type your message…"></textarea>
   <div class="control-group">
     <div class="controls">
       <label class="checkbox">

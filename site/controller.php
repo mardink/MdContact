@@ -32,7 +32,6 @@ $mailer->addCC($from);}
 $mailer->setSubject($subject);
 $mailer->setBody($body);
 $mailer->isHTML();
-$mailer->send();
 $send =& $mailer->Send();
 if ( $send !== true ) {
 	JFactory::getApplication()->enqueueMessage('Your message is not send, please try again later');
