@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form
+	lessfiles="media://com_todo/css/backend.less||media://com_mdcontact/css/backend.css"
+	type="browse"
+	show_header="1"
+	show_filters="0"
+	show_pagination="1"
+	norows_placeholder="There are no messages"
+>
+	<headerset>
+		<header name="ordering" type="ordering" sortable="true" tdwidth="1%" />
+		<header name="id" type="rowselect" tdwidth="20" />
+		<header name="Send By" type="field" sortable="true" tdwidth="12%"/>
+		<header name="Email" type="field" sortable="true" tdwidth="12%" />
+		<header name="Message" type="field" sortable="true" />
+		<header name="Date send" type="field" sortable="true" tdwidth="15%" />
+	</headerset>
+
+	<fieldset name="items">
+		<field name="ordering" type="ordering" labelclass="order"/>
+		<field name="mdcontact_contact_id" type="selectrow"/>
+		<field name="title" type="text"
+			show_link="true"
+			url="index.php?option=com_mdcontact&amp;view=contact&amp;task=read&amp;id=[ITEM:ID]"
+			class="mdcontactitem"
+			empty_replacement="(no title)"
+		 />
+		<field name="email" type="field" />
+		<field name="description" type="field" />
+		<field name="created_on" type="field"/>
+	</fieldset>
+</form>

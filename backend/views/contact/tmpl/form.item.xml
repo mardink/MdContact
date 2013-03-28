@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form
+	lessfiles="media://com_mdcontact/css/backend.less||media://com_mdcontact/css/backend.css"
+>
+	<fieldset name="basic_configuration"
+		label="MDContact Message"
+		description="View the message that is send"
+		
+	>
+		<field name="title" type="text"
+			class="inputbox"
+			label="Name sender"
+			labelclass="todo-label todo-label-main"
+			required="true"
+			size="50"
+		 />
+		 <field name="email" type="text"
+			class="inputbox"
+			label="Email adress sender"
+			labelclass="todo-label todo-label-main"
+			required="true"
+			size="50"
+		 />
+		<field name="description" type="textarea"
+			label="Message"
+			class="inputbox"
+			required="true"
+			rows="10"
+		/>
+	</fieldset>
+</form>
