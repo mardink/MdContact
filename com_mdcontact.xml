@@ -61,7 +61,7 @@
 	<administration>
 		<!-- Administration menu -->
 		<menu view="cpanel"
-			img="../media/com_mdcontact/images/mdcontact-16.png">MDContact</menu>
+			img="../media/com_mdcontact/images/envelop16x16.png">MDContact</menu>
 
 		<!-- Back-end files -->
 		<files folder="backend">
