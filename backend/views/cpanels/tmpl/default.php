@@ -23,7 +23,7 @@ FOFTemplateUtils::addCSS('media://com_mdcontact/css/backend.css');
 </div>
 
 	<div id="cpanel_live" class="span4">
-	<?php echo LiveUpdate::getIcon(); ?>
+	<?php //echo LiveUpdate::getIcon(); ?>
 	</div>
 </div>
 

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package LiveUpdate
- * @copyright Copyright ©2011 Nicholas K. Dionysopoulos / AkeebaBackup.com
+ * @copyright Copyright ©2011-2013 Nicholas K. Dionysopoulos / AkeebaBackup.com
  * @license GNU LGPLv3 or later <http://www.gnu.org/copyleft/lesser.html>
  */
 
@@ -13,10 +13,9 @@ defined('_JEXEC') or die();
 class LiveUpdateConfig extends LiveUpdateAbstractConfig
 {
 	var $_extensionName			= 'com_mdcontact';
-	var $_extensionTitle		= 'MDCONTACT';
+	var $_extensionTitle		= 'MDContact';
 	var $_updateURL				= 'http://localhost/md-web/index.php?option=com_ars&view=update&format=ini&id=1';
 	var $_requiresAuthorization	= false;
 	var $_versionStrategy		= 'different';
-	
 	
 }

@@ -8,10 +8,7 @@
 defined('_JEXEC') or die();
 
 // Load the CSS file
-FOFTemplateUtils::addCSS('media://com_mdcontact/css/backend.css');
-
-// Load the Select helper class of our component
-//$this->loadHelper('select');
+FOFTemplateUtils::addCSS('media://com_mdcontact/css/frontend.css');
 
 // Load the Javascript framework for Joomla!
 JHTML::_('behavior.framework');
@@ -25,7 +22,7 @@ $editor = JFactory::getEditor();
 	<input type="hidden" name="task" value="mailer" />
 	<input type="hidden" name="mdcontact_contact_id" value="" />
 	<input type="hidden" name="<?php echo JFactory::getSession()->getFormToken();?>" value="1" />
-<div class="mwcontact">
+<div class="mdcontact">
 <h1 class="title"> Contact Form</h1>
 <div class="content" >
 <?php
@@ -40,12 +37,13 @@ JHtml::_('behavior.formvalidation');
 $app = JFactory::getApplication('site');
 $componentParams = $app->getParams('com_mdcontact');
 $adress = $componentParams->get('adress');
+$intro = $componentParams->get('intro');
 echo $adress;
 ?>
 </address>
 </div>
 <div class="span4">
-<p>Fill in the form and we will contact you as soon as possible</p>
+<p><?php echo $intro;?></p>
   <input type="text" name="title" id="yourname" placeholder="Your name..">
   <div class="control-group">
     <label class="control-label" for="inputEmail"></label>
@@ -57,8 +55,8 @@ echo $adress;
   <div class="control-group">
     <div class="controls">
       <label class="checkbox">
-        <input type="checkbox" name="copy" value="1"> Send a copy of this message to yourself</label>
-       <button type="submit" class="btn" >Send</button>
+        <input type="checkbox" name="copy" value="1"><?php echo JText::_( 'COM_MDCONTACT_LBL_CONTACT_COPY' );?></label>
+       <button type="submit" class="btn"><?php echo JText::_( 'COM_MDCONTACT_LBL_CONTACT_SUBMIT' );?></button>
     </div>
   </div>
 
