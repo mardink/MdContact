@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
 	<fieldset
+		name="Basic"
+		label="Basic Configuration"
+		description="Basic Configuration"
+		>
+		<field name="email_to" type="text" label="Send the message to this emailadress" class="inputbox"	/>
+		<field name="subject" type="text" label="Subject of the message" class="inputbox"	/>
+		<field name="adress" type="editor" label="Adress information to be shown on the page" buttons="false" filter="safehtml"/>
+	</fieldset>	
+	<fieldset
 		name="permissions"
 		label="JCONFIG_PERMISSIONS_LABEL"
 		description="JCONFIG_PERMISSIONS_DESC"

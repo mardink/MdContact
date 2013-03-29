@@ -66,14 +66,16 @@
 		<!-- Back-end files -->
 		<files folder="backend">
 			<folder>fields</folder>
+			<folder>liveupdate</folder>
 			<folder>sql</folder>
 			<folder>views</folder>
-			<filename>toolbar.xml</filename>
 			<filename>access.xml</filename>
 			<filename>config.xml</filename>
 			<filename>dispatcher.php</filename>
 			<filename>index.html</filename>
 			<filename>mdcontact.php</filename>
+			<filename>script.mdcontact.php</filename>
+			<filename>toolbar.php</filename>
 		</files>
 
 		<!-- Back-end translation files -->
@@ -85,12 +87,10 @@
 	</administration>
 
 	<!-- Installation / uninstallation script file -->
-	<!--<scriptfile>script.mdcontact.php</scriptfile>-->
+	<scriptfile>script.mdcontact.php</scriptfile>
 
 	<!-- Update servers -->
-	<!--
 	<updateservers>
-		<server type="extension" priority="1" name="mdcontact"><![CDATA[http://cdn.akeebabackup.com/updates/todo.xml]]></server>
+		<server type="extension" priority="1" name="mdcontact"><![CDATA[http://localhost/md-web/index.php?option=com_ars&view=update&task=stream&format=xml&id=1&dummy=extension.xml]]></server>
 	</updateservers>
-	-->
 </extension>
