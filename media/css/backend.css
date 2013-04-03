@@ -1,14 +1,3 @@
-.icon-48-todo { background: transparent url(../images/todo-48.png) no-repeat !important; }
-
-span.todo-due-overdue { color: red; }
-span.todo-due-closing { color: #a90; }
-span.todo-due-enoughtime { color: green; }
-
-div.todo-clear { clear: left; }
-.joomla-version-25 label.todo-label { min-width: 250px; background-color: rgba(0,0,0,0.1); padding: 2px; margin-right: 10px; }
-.joomla-version-25 label.todo-label-main { font-weight: bold; font-size: 120%; }
-
-.todo-title-field { display: block; font-size: x-large; font-weight: bold; border-bottom: thin solid gray; }
 #mdcontact_cpanel{
 	min-height:	400px;
 }
@@ -17,4 +6,17 @@ div.todo-clear { clear: left; }
 	height: 60px;
 	border: solid silver;
 	text-align: center;
+}
+.md_cpanel_icon{
+	text-align: center;
+	float: left !important;
+	font-size: 8pt !important;
+	font-weight: normal !important;
+	color: #000000 !important;
+	background-color: #f0f0f0 !important;
+	border: 1px solid #E5E5E5 !important;
+	width: 200px;
+	height: 200px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
 }
