@@ -17,7 +17,7 @@ FOFTemplateUtils::addCSS('media://com_mdcontact/css/backend.css');
 ?>
 <div class="row-fluid">
 	<div id="mdcontact_cpanel" class="span8">
-	<a href="index.php?option=com_mdcontact&view=contacts"><img src="../media/com_mdcontact/images/envelop.jpg" />
+	<a href="index.php?option=com_mdcontact&view=contacts"><img src="../media/com_mdcontact/images/envelop256x256.png" />
  
 </a>
 </div>
