@@ -16,7 +16,7 @@ JHTML::_('behavior.framework');
 // Joomla! editor object
 $editor = JFactory::getEditor();
 ?>
-<form action="index.php" method="post" id="adminForm">
+<form action="index.php" method="post" id="adminForm" class="form-validate">
 	<input type="hidden" name="option" value="com_mdcontact" />
 	<input type="hidden" name="view" value="contact" />
 	<input type="hidden" name="task" value="mailer" />
@@ -44,11 +44,11 @@ echo $adress;
 </div>
 <div class="span4">
 <p><?php echo $intro;?></p>
-  <input type="text" name="title" id="yourname" placeholder="Your name..">
+  <input type="text" name="title" id="yourname" class="required" placeholder="Your name..">
   <div class="control-group">
     <label class="control-label" for="inputEmail"></label>
     <div class="controls">
-      <input type="text" name="email" id="inputEmail" class="required validate-email"placeholder="Emailadress..">
+      <input type="text" name="email" id="inputEmail" class="required validate-email" placeholder="Emailadress..">
     </div>
   </div>
   <textarea type="textarea" rows="5" name="description" id="message" class="required" placeholder="Type your message.."></textarea>
