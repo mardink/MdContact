@@ -54,7 +54,7 @@ class Com_MdcontactInstallerScript
 	 * @param string $type install, update or discover_update
 	 * @param JInstaller $parent
 	 */
-	function postflight( $type, $parent)
+	function postflight( $type, $parent )
 	{
 
 		// Install FOF
@@ -63,7 +63,7 @@ class Com_MdcontactInstallerScript
 
 
 		// Show the post-installation page
-		$this->_renderPostInstallation($fofStatus, $parent);
+		$this->_renderPostInstallation($status, $fofStatus, $parent);
 	}
 
 	
@@ -71,7 +71,7 @@ class Com_MdcontactInstallerScript
 	/**
 	 * Renders the post-installation message
 	 */
-	private function _renderPostInstallation($fofStatus, $parent)
+	private function _renderPostInstallation($status, $fofStatus, $parent)
 	{
 ?>
 
@@ -112,7 +112,7 @@ class Com_MdcontactInstallerScript
 <?php
 	}
 
-	private function _renderPostUninstallation($parent)
+	private function _renderPostUninstallation($status, $parent)
 	{
 ?>
 <?php $rows = 0;?>
@@ -138,59 +138,50 @@ class Com_MdcontactInstallerScript
 </table>
 <?php
 	}
-/**
+	/**
 	 * Check if FoF is already installed and install if not
 	 *
 	 * @param   object  $parent  class calling this method
 	 *
 	 * @return  array            Array with performed actions summary
 	 */
+	
+	
+	
 	private function _installFOF($parent)
 	{
 		$src = $parent->getParent()->getPath('source');
 
-		// Load dependencies
-		JLoader::import('joomla.filesystem.file');
-		JLoader::import('joomla.utilities.date');
-		$source = $src . '/fof';
-
-		if (!defined('JPATH_LIBRARIES'))
-		{
-			$target = JPATH_ROOT . '/libraries/fof';
-		}
-		else
-		{
-			$target = JPATH_LIBRARIES . '/fof';
+		// Install the FOF framework
+		jimport('joomla.filesystem.folder');
+		jimport('joomla.filesystem.file');
+		jimport('joomla.utilities.date');
+		$source = $src.'/fof';
+		if(!defined('JPATH_LIBRARIES')) {
+			$target = JPATH_ROOT.'/libraries/fof';
+		} else {
+			$target = JPATH_LIBRARIES.'/fof';
 		}
 		$haveToInstallFOF = false;
-
-		if (!is_dir($target))
-		{
+		if(!JFolder::exists($target)) {
 			$haveToInstallFOF = true;
-		}
-		else
-		{
+		} else {
 			$fofVersion = array();
-
-			if (file_exists($target . '/version.txt'))
-			{
-				$rawData = JFile::read($target . '/version.txt');
-				$info    = explode("\n", $rawData);
+			if(JFile::exists($target.'/version.txt')) {
+				$rawData = JFile::read($target.'/version.txt');
+				$info = explode("\n", $rawData);
 				$fofVersion['installed'] = array(
 					'version'	=> trim($info[0]),
 					'date'		=> new JDate(trim($info[1]))
 				);
-			}
-			else
-			{
+			} else {
 				$fofVersion['installed'] = array(
 					'version'	=> '0.0',
 					'date'		=> new JDate('2011-01-01')
 				);
 			}
-
-			$rawData = JFile::read($source . '/version.txt');
-			$info    = explode("\n", $rawData);
+			$rawData = JFile::read($source.'/version.txt');
+			$info = explode("\n", $rawData);
 			$fofVersion['package'] = array(
 				'version'	=> trim($info[0]),
 				'date'		=> new JDate(trim($info[1]))
@@ -200,41 +191,31 @@ class Com_MdcontactInstallerScript
 		}
 
 		$installedFOF = false;
-
-		if ($haveToInstallFOF)
-		{
+		if($haveToInstallFOF) {
 			$versionSource = 'package';
 			$installer = new JInstaller;
 			$installedFOF = $installer->install($source);
-		}
-		else
-		{
+		} else {
 			$versionSource = 'installed';
 		}
 
-		if (!isset($fofVersion))
-		{
+		if(!isset($fofVersion)) {
 			$fofVersion = array();
-
-			if (file_exists($target . '/version.txt'))
-			{
-				$rawData = JFile::read($target . '/version.txt');
-				$info    = explode("\n", $rawData);
+			if(JFile::exists($target.'/version.txt')) {
+				$rawData = JFile::read($target.'/version.txt');
+				$info = explode("\n", $rawData);
 				$fofVersion['installed'] = array(
 					'version'	=> trim($info[0]),
 					'date'		=> new JDate(trim($info[1]))
 				);
-			}
-			else
-			{
+			} else {
 				$fofVersion['installed'] = array(
 					'version'	=> '0.0',
 					'date'		=> new JDate('2011-01-01')
 				);
 			}
-
-			$rawData = JFile::read($source . '/version.txt');
-			$info    = explode("\n", $rawData);
+			$rawData = JFile::read($source.'/version.txt');
+			$info = explode("\n", $rawData);
 			$fofVersion['package'] = array(
 				'version'	=> trim($info[0]),
 				'date'		=> new JDate(trim($info[1]))
@@ -242,9 +223,8 @@ class Com_MdcontactInstallerScript
 			$versionSource = 'installed';
 		}
 
-		if (!($fofVersion[$versionSource]['date'] instanceof JDate))
-		{
-			$fofVersion[$versionSource]['date'] = new JDate;
+		if(!($fofVersion[$versionSource]['date'] instanceof JDate)) {
+			$fofVersion[$versionSource]['date'] = new JDate();
 		}
 
 		return array(
@@ -254,4 +234,4 @@ class Com_MdcontactInstallerScript
 			'date'		=> $fofVersion[$versionSource]['date']->format('Y-m-d'),
 		);
 	}
-	}
+}

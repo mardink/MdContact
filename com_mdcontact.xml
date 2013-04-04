@@ -12,6 +12,7 @@
 
 	<!-- Public front end files -->
 	<files folder="frontend">
+		<filename>index.html</filename>
 		<filename>mdcontact.php</filename>
 		<folder>controllers</folder>
 		<folder>views</folder>
@@ -60,7 +61,7 @@
 	<administration>
 		<!-- Administration menu -->
 		<menu view="cpanel"
-			img="../media/com_mdcontact/images/envelop16x16.png">MDContact</menu>
+			img="../media/com_mdcontact/images/mdcontact-16.png">MDContact</menu>
 
 		<!-- Back-end files -->
 		<files folder="backend">
@@ -71,6 +72,7 @@
 			<filename>access.xml</filename>
 			<filename>config.xml</filename>
 			<filename>dispatcher.php</filename>
+			<filename>index.html</filename>
 			<filename>mdcontact.php</filename>
 			<filename>script.mdcontact.php</filename>
 			<filename>toolbar.php</filename>

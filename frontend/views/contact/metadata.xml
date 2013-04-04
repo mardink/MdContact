@@ -5,7 +5,7 @@
 		<!-- Layout options -->
 		<options>
 			<!-- Default layout's name -->
-			<default name="COM_MDCONTACT_VIEW_CONTACT_TITLE" />
+			<default name="Contact Form" />
 		</options>
 	</view>
 </metadata>
