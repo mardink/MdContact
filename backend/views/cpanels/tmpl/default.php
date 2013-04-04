@@ -1,6 +1,6 @@
 <?php
 /*
- * @package mdfront
+ * @package MDContact
  * @copyright Copyright (c)2013 Martijn Hiddink / mardinkwebdesign.com
  * @license GNU General Public License version 3 or later
  */
@@ -17,9 +17,11 @@ FOFTemplateUtils::addCSS('media://com_mdcontact/css/backend.css');
 ?>
 <div class="row-fluid">
 	<div id="mdcontact_cpanel" class="span8">
-	<a href="index.php?option=com_mdcontact&view=contacts"><img src="../media/com_mdcontact/images/envelop.jpg" />
+	<div class=md_cpanel_icon>
+	<a href="index.php?option=com_mdcontact&view=contacts"><img src="../media/com_mdcontact/images/envelop256x256.png" />
  
 </a>
+</div>
 </div>
 
 	<div id="cpanel_live" class="span4">
@@ -34,4 +36,3 @@ FOFTemplateUtils::addCSS('media://com_mdcontact/css/backend.css');
 	<p style="font-size: small" class="well">Copyright &copy;<?php echo date('Y');?>. <a href="http://www.mardinkwebdesign.com">Mardink Webdesign</a> All Rights Reserved.</p>
 </div>
 </div>
-
