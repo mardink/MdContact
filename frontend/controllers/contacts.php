@@ -41,6 +41,22 @@ class MdcontactControllerContacts extends FOFController
 	}
 	
 	/**
+	 * Overwrite on beforeApply. So guest users see the view.
+	 * Edit permissions must be granted for guest to send the email
+	 */
+	
+	function onBeforeApply() {
+		return true;
+	}
+	/**
+	 * Overwrite on beforeApply. So guest users see the view.
+	 * Edit permissions must be granted for guest to send the email
+	 */
+	
+	function onBeforeEdit() {
+		return true;
+	}
+	/**
 	 * Send email. After succesfull send the info will be to de apply function of FoF and stored in the database
 	 *
 	 *
