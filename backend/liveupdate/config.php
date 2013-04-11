@@ -14,7 +14,7 @@ class LiveUpdateConfig extends LiveUpdateAbstractConfig
 {
 	var $_extensionName			= 'com_mdcontact';
 	var $_extensionTitle		= 'MDContact';
-	var $_updateURL				= 'http://localhost/md-web/index.php?option=com_ars&view=update&format=ini&id=1';
+	var $_updateURL				= 'http://www.md-web.eu/index.php?option=com_ars&view=update&format=ini&id=1';
 	var $_requiresAuthorization	= false;
 	var $_versionStrategy		= 'different';
 	

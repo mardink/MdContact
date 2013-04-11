@@ -7,7 +7,7 @@
 	<authorUrl>http://www.mardinkwebdesign.com</authorUrl>
 	<copyright>Copyright (c)2013 Martijn Hiddink / Mardink Webdesign</copyright>
 	<license>GNU GPL v2 or later</license>
-	<version>1.0.0</version>
+	<version>1.0.2</version>
 	<description>MdContact is a simple contact form for joomla!</description>
 
 	<!-- Public front end files -->
@@ -21,6 +21,7 @@
 	<!-- Front end translation files -->
 	<languages folder="language/frontend">
 		<language tag="en-GB">en-GB/en-GB.com_mdcontact.ini</language>
+		<language tag="nl-NL">nl-NL/nl-NL.com_mdcontact.ini</language>
 	</languages>
 
 	<!-- SQL query files to execute on installation -->
@@ -61,7 +62,7 @@
 	<administration>
 		<!-- Administration menu -->
 		<menu view="cpanel"
-			img="../media/com_mdcontact/images/mdcontact-16.png">MDContact</menu>
+			img="../media/com_mdcontact/images/envelop16x16.png">MDContact</menu>
 
 		<!-- Back-end files -->
 		<files folder="backend">
@@ -82,6 +83,8 @@
 		<languages folder="language/backend">
 			<language tag="en-GB">en-GB/en-GB.com_mdcontact.ini</language>
 			<language tag="en-GB">en-GB/en-GB.com_mdcontact.sys.ini</language>
+			<language tag="nl-NL">nl-NL/nl-NL.com_mdcontact.ini</language>
+			<language tag="nl-NL">nl-NL/nl-NL.com_mdcontact.sys.ini</language>
 		</languages>
 
 	</administration>
