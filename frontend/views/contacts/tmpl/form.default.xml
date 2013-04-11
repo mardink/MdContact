@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <form
-	lessfiles="media://com_todo/css/frontend.less||media://com_todo/css/frontend.css"
+	lessfiles="media://com_mdcontact/css/frontend.less||media://com_mdcontact/css/frontend.css"
 	type="browse"
 	show_header="1"
 	show_filters="1"
 	show_pagination="1"
-	norows_placeholder="COM_TODO_COMMON_NORECORDS"
+	norows_placeholder="COM_mdcontact_COMMON_NORECORDS"
 >
 	<headerset>
 		<header name="title" type="fieldsearchable" sortable="false"
@@ -18,7 +18,7 @@
 		<field name="title" type="text"
 			show_link="true"
 			url="index.php?option=com_mdcontact&amp;view=contact&amp;id=[ITEM:ID]"
-			class="todoitem"
+			class="mdcontactitem"
 			empty_replacement="(no title)"
 		 />
 
