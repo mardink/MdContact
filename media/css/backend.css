@@ -2,21 +2,20 @@
 	min-height:	400px;
 }
 .icon{
-	display:block;
-	height: 60px;
-	border: solid silver;
-	text-align: center;
+	padding-top: 40px;
 }
 .md_cpanel_icon{
 	text-align: center;
+	margin-right: 20px;
 	float: left !important;
 	font-size: 8pt !important;
 	font-weight: normal !important;
 	color: #000000 !important;
 	background-color: #f0f0f0 !important;
 	border: 1px solid #E5E5E5 !important;
-	width: 250px;
-	height: 250px;
+	width: 150px;
+	height: 150px;
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
+
 }
