@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="2.5" type="component" method="upgrade">
 	<name>MDContact</name>
-	<creationDate>23-03-2013</creationDate>
+	<creationDate>16-05-2013</creationDate>
 	<author>Martijn Hiddink</author>
 	<authorEmail>support@mardinkwebdesign.com</authorEmail>
 	<authorUrl>http://www.mardinkwebdesign.com</authorUrl>
 	<copyright>Copyright (c)2013 Martijn Hiddink / Mardink Webdesign</copyright>
 	<license>GNU GPL v2 or later</license>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 	<description>MdContact is a simple contact form for joomla!</description>
 
 	<!-- Public front end files -->
@@ -94,6 +94,6 @@
 
 	<!-- Update servers -->
 	<updateservers>
-		<server type="extension" priority="1" name="mdcontact"><![CDATA[http://localhost/md-web/index.php?option=com_ars&view=update&task=stream&format=xml&id=1&dummy=extension.xml]]></server>
+		<server type="extension" priority="1" name="mdcontact"><![CDATA[http://www.mardinkwebdesign.com/index.php?option=com_ars&view=update&task=stream&format=xml&id=1&dummy=extension.xml]]></server>
 	</updateservers>
 </extension>
