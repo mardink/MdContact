@@ -76,7 +76,7 @@ class Com_MdcontactInstallerScript
 ?>
 
 <?php $rows = 1;?>
-<img src="../media/com_ars/icons/ars_logo_48.png" width="48" height="48" alt="Akeeba Release System" align="right" />
+<img src="../media/com_mdcontact/images/envelop64x64.png" width="64" height="64" alt="Md Contact" align="right" />
 
 <h2>Welcome to MDContact!</h2>
 

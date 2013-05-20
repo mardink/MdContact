@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <form
-	lessfiles="media://com_todo/css/backend.less||media://com_mdcontact/css/backend.css"
+	lessfiles="media://com_mdcontact/css/backend.less||media://com_mdcontact/css/backend.css"
 	type="browse"
 	show_header="1"
 	show_filters="0"
 	show_pagination="1"
-	norows_placeholder="COM_MDCONTACT_COMMON_NORECORD"
+	norows_placeholder="There are no messages"
 >
 	<headerset>
 		<header name="ordering" type="ordering" sortable="true" tdwidth="1%" />
 		<header name="id" type="rowselect" tdwidth="20" />
-		<header name="COM_MDCONTACT_CONTACTS_SEND" type="field" sortable="true" tdwidth="12%"/>
-		<header name="COM_MDCONTACT_CONTACTS_EMAIL" type="field" sortable="true" tdwidth="12%" />
-		<header name="COM_MDCONTACT_CONTACTS_MESSAGE" type="field" sortable="true" />
-		<header name="COM_MDCONTACT_CONTACTS_DATE" type="field" sortable="true" tdwidth="15%" />
+		<header name="Send By" type="field" sortable="true" tdwidth="12%"/>
+		<header name="Email" type="field" sortable="true" tdwidth="12%" />
+		<header name="Message" type="field" sortable="true" />
+		<header name="Date send" type="field" sortable="true" tdwidth="15%" />
 	</headerset>
 
 	<fieldset name="items">

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
-	<fieldset name="Basic" label="Basic Configuration" description="COM_MDCONTACT_CPANEL_GROUP_BASIC">
-		<field name="email_to" type="text" label="COM_MDCONTACT_OPTIONS_EMAIL" class="inputbox"	/>
-		<field name="subject" type="text" label="COM_MDCONTACT_OPTIONS_SUBJECT" class="inputbox" />
-		<field name="intro" type="textarea" row="5" label="COM_MDCONTACT_OPTIONS_INTRO" class="inputbox" />
-		<field name="adress" type="editor" label="COM_MDCONTACT_OPTIONS_INFO" buttons="false" filter="safehtml"/>
+	<fieldset
+		name="Basic"
+		label="Basic Configuration"
+		description="Basic Configuration"
+		>
+		<field name="email_to" type="text" label="Send the message to this emailadress" class="inputbox"	/>
+		<field name="subject" type="text" label="Subject of the message" class="inputbox"	/>
+		<field name="adress" type="editor" label="Adress information to be shown on the page" buttons="false" filter="safehtml"/>
 	</fieldset>	
 	<fieldset
 		name="permissions"
