@@ -4,13 +4,15 @@
  * @copyright  Copyright (C) 2010 - 2012 Akeeba Ltd. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
-
 // Protect from unauthorized access
-defined('_JEXEC') or die();
+defined('_JEXEC') or die;
 
 /**
  * An interface for FOFFormHeader fields, used to define the filters and the
  * elements of the header row in repeatable (browse) views
+ *
+ * @package  FrameworkOnFramework
+ * @since    2.0
  */
 abstract class FOFFormHeader
 {
@@ -45,7 +47,7 @@ abstract class FOFFormHeader
 	 * @since  2.0
 	 */
 	protected $label;
-	
+
 	/**
 	 * The header HTML.
 	 *
@@ -53,7 +55,7 @@ abstract class FOFFormHeader
 	 * @since  2.0
 	 */
 	protected $header;
-	
+
 	/**
 	 * The filter HTML.
 	 *
@@ -101,7 +103,7 @@ abstract class FOFFormHeader
 	 * @since  2.0
 	 */
 	protected $group;
-	
+
 	/**
 	 * The form field type.
 	 *
@@ -133,7 +135,7 @@ abstract class FOFFormHeader
 	 * @since  2.0
 	 */
 	protected $filterSource;
-	
+
 	/**
 	 * Is this a sortable column?
 	 *
@@ -157,7 +159,7 @@ abstract class FOFFormHeader
 			$this->form = $form;
 		}
 	}
-	
+
 	/**
 	 * Method to get certain otherwise inaccessible properties from the form field object.
 	 *
@@ -193,7 +195,7 @@ abstract class FOFFormHeader
 				{
 					$this->value = $this->getValue();
 				}
-				
+
 				return $this->value;
 				break;
 
@@ -245,7 +247,7 @@ abstract class FOFFormHeader
 
 		return null;
 	}
-	
+
 	/**
 	 * Method to attach a JForm object to the field.
 	 *
@@ -261,7 +263,7 @@ abstract class FOFFormHeader
 
 		return $this;
 	}
-	
+
 	/**
 	 * Method to attach a FOFForm object to the field.
 	 *
@@ -284,13 +286,13 @@ abstract class FOFFormHeader
 		}
 
 		// Reset the internal fields
-		$this->label		= null;
-		$this->header		= null;
-		$this->filter		= null;
-		$this->buttons		= null;
-		$this->options		= null;
-		$this->value		= null;
-		$this->filterSource	= null;
+		$this->label = null;
+		$this->header = null;
+		$this->filter = null;
+		$this->buttons = null;
+		$this->options = null;
+		$this->value = null;
+		$this->filterSource = null;
 
 		// Set the XML element object.
 		$this->element = $element;
@@ -307,10 +309,10 @@ abstract class FOFFormHeader
 
 		// Set the group of the field.
 		$this->group = $group;
-		
+
 		// Set the td width of the field.
 		$this->tdwidth = $tdwidth;
-		
+
 		// Set the field name and id.
 		$this->fieldname = $this->getFieldName($name);
 		$this->name = $this->getName($this->fieldname);
@@ -321,8 +323,8 @@ abstract class FOFFormHeader
 		$this->value = $this->getValue();
 
 		return true;
-	}	
-	
+	}
+
 	/**
 	 * Method to get the id used for the field input tag.
 	 *
@@ -338,9 +340,11 @@ abstract class FOFFormHeader
 		$id = '';
 
 		// If the field is in a group add the group control to the field id.
+
 		if ($this->group)
 		{
 			// If we already have an id segment add the group control as another level.
+
 			if ($id)
 			{
 				$id .= '_' . str_replace('.', '_', $this->group);
@@ -352,6 +356,7 @@ abstract class FOFFormHeader
 		}
 
 		// If we already have an id segment add the field id/name as another level.
+
 		if ($id)
 		{
 			$id .= '_' . ($fieldId ? $fieldId : $fieldName);
@@ -366,7 +371,7 @@ abstract class FOFFormHeader
 
 		return $id;
 	}
-	
+
 	/**
 	 * Method to get the name used for the field input tag.
 	 *
@@ -381,10 +386,12 @@ abstract class FOFFormHeader
 		$name = '';
 
 		// If the field is in a group add the group control to the field name.
+
 		if ($this->group)
 		{
 			// If we already have a name segment add the group control as another level.
 			$groups = explode('.', $this->group);
+
 			if ($name)
 			{
 				foreach ($groups as $group)
@@ -395,6 +402,7 @@ abstract class FOFFormHeader
 			else
 			{
 				$name .= array_shift($groups);
+
 				foreach ($groups as $group)
 				{
 					$name .= '[' . $group . ']';
@@ -403,6 +411,7 @@ abstract class FOFFormHeader
 		}
 
 		// If we already have a name segment add the field name as another level.
+
 		if ($name)
 		{
 			$name .= '[' . $fieldName . ']';
@@ -413,8 +422,8 @@ abstract class FOFFormHeader
 		}
 
 		return $name;
-	}	
-	
+	}
+
 	/**
 	 * Method to get the field name used.
 	 *
@@ -428,7 +437,7 @@ abstract class FOFFormHeader
 	{
 		return $fieldName;
 	}
-	
+
 	/**
 	 * Method to get the field label.
 	 *
@@ -438,12 +447,10 @@ abstract class FOFFormHeader
 	 */
 	protected function getLabel()
 	{
-		$title = '';
-
 		// Get the label text from the XML element, defaulting to the element name.
 		$title = $this->element['label'] ? (string) $this->element['label'] : '';
-		
-		if(empty($title))
+
+		if (empty($title))
 		{
 			$view = $this->form->getView();
 			$params = $view->getViewOptionAndName();
@@ -452,7 +459,7 @@ abstract class FOFFormHeader
 				(string) $this->element['name'];
 			$title = strtoupper($title);
 			$result = JText::_($title);
-			
+
 			if ($result === $title)
 			{
 				$title = ucfirst((string) $this->element['name']);
@@ -461,17 +468,27 @@ abstract class FOFFormHeader
 
 		return $title;
 	}
-	
+
 	/**
 	 * Get the filter value for this header field
+	 *
+	 * @return  mixed  The filter value
 	 */
 	protected function getValue()
 	{
 		$model = $this->form->getModel();
-		
+
 		return $model->getState($this->filterSource);
 	}
-	
+
+	/**
+	 * Return the key of the filter value in the model state or, if it's not set,
+	 * the name of the field.
+	 *
+	 * @param   string  $filterSource  The filter source value to return
+	 *
+	 * @return  string
+	 */
 	protected function getFilterSource($filterSource)
 	{
 		if ($filterSource)
@@ -483,64 +500,75 @@ abstract class FOFFormHeader
 			return $this->name;
 		}
 	}
-	
+
+	/**
+	 * Is this a sortable field?
+	 *
+	 * @return  boolean  True if it's sortable
+	 */
 	protected function getSortable()
 	{
 		$sortable = ($this->element['sortable'] != 'false');
-		if($sortable) {
-			if(empty($this->header)) {
+
+		if ($sortable)
+		{
+			if (empty($this->header))
+			{
 				$this->header = $this->getHeader();
 			}
+
 			$sortable = !empty($this->header);
 		}
-		
+
 		return $sortable;
 	}
-	
+
 	/**
 	 * Returns the HTML for the header row, or null if this element should
 	 * render no header element
-	 * 
+	 *
 	 * @return  string|null  HTML code or null if nothing is to be rendered
-	 * 
+	 *
 	 * @since 2.0
 	 */
 	protected function getHeader()
 	{
 		return null;
 	}
-	
+
 	/**
 	 * Returns the HTML for a text filter to be rendered in the filter row,
 	 * or null if this element should render no text input filter.
-	 * 
+	 *
 	 * @return  string|null  HTML code or null if nothing is to be rendered
-	 * 
+	 *
 	 * @since 2.0
 	 */
 	protected function getFilter()
 	{
 		return null;
 	}
-	
+
 	/**
 	 * Returns the HTML for the buttons to be rendered in the filter row,
 	 * next to the text input filter, or null if this element should render no
 	 * text input filter buttons.
-	 * 
+	 *
 	 * @return  string|null  HTML code or null if nothing is to be rendered
-	 * 
+	 *
 	 * @since 2.0
 	 */
 	protected function getButtons()
 	{
 		return null;
 	}
-	
+
 	/**
 	 * Returns the JHtml options for a drop-down filter. Do not include an
 	 * empty option, it is added automatically.
-	 * 
+	 *
+	 * @return  array  The JHtml options for a drop-down filter
+	 *
 	 * @since 2.0
 	 */
 	protected function getOptions()

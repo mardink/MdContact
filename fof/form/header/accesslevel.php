@@ -4,14 +4,14 @@
  * @copyright  Copyright (C) 2010 - 2012 Akeeba Ltd. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
-
 // Protect from unauthorized access
-defined('_JEXEC') or die();
+defined('_JEXEC') or die;
 
 /**
  * Access level field header
- * 
- * @since 2.0
+ *
+ * @package  FrameworkOnFramework
+ * @since    2.0
  */
 class FOFFormHeaderAccesslevel extends FOFFormHeaderFieldselectable
 {
@@ -39,5 +39,4 @@ class FOFFormHeaderAccesslevel extends FOFFormHeaderFieldselectable
 
 		return $options;
 	}
-
 }

@@ -4,14 +4,14 @@
  * @copyright  Copyright (C) 2010 - 2012 Akeeba Ltd. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
-
 // Protect from unauthorized access
-defined('_JEXEC') or die();
+defined('_JEXEC') or die;
 
 /**
  * Language field header
- * 
- * @since 2.0
+ *
+ * @package  FrameworkOnFramework
+ * @since    2.0
  */
 class FOFFormHeaderLanguage extends FOFFormHeaderFieldselectable
 {
@@ -26,6 +26,7 @@ class FOFFormHeaderLanguage extends FOFFormHeaderFieldselectable
 	{
 		// Initialize some field attributes.
 		$client = (string) $this->element['client'];
+
 		if ($client != 'site' && $client != 'administrator')
 		{
 			$client = 'site';
@@ -33,10 +34,9 @@ class FOFFormHeaderLanguage extends FOFFormHeaderFieldselectable
 
 		// Merge any additional options in the XML definition.
 		$options = array_merge(
-			parent::getOptions(),
-			JLanguageHelper::createLanguageList($this->value, constant('JPATH_' . strtoupper($client)), true, true)
+			parent::getOptions(), JLanguageHelper::createLanguageList($this->value, constant('JPATH_' . strtoupper($client)), true, true)
 		);
 
 		return $options;
-	}	
+	}
 }

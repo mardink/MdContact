@@ -4,26 +4,33 @@
  * @copyright  Copyright (C) 2010 - 2012 Akeeba Ltd. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
-
 // Protect from unauthorized access
-defined('_JEXEC') or die();
+defined('_JEXEC') or die;
 
+/**
+ * FOFForm is an extension to JForm which support not only edit views but also
+ * browse (record list) and read (single record display) views based on XML
+ * forms.
+ *
+ * @package  FrameworkOnFramework
+ * @since    2.0
+ */
 class FOFForm extends JForm
 {
 	/**
 	 * The model attached to this view
-	 * 
+	 *
 	 * @var FOFModel
 	 */
 	protected $model;
-	
+
 	/**
 	 * The view used to render this form
-	 * 
+	 *
 	 * @var FOFView
 	 */
 	protected $view;
-	
+
 	/**
 	 * Method to get an instance of a form.
 	 *
@@ -77,50 +84,62 @@ class FOFForm extends JForm
 
 		return $forms[$name];
 	}
-	
+
 	/**
 	 * Returns the value of an attribute of the form itself
-	 * 
+	 *
 	 * @param   string  $attribute  The name of the attribute
 	 * @param   mixed   $default    Optional default value to return
-	 * 
+	 *
 	 * @return  mixed
-	 * 
+	 *
 	 * @since 2.0
 	 */
 	public function getAttribute($attribute, $default = null)
 	{
 		$value = $this->xml->attributes()->$attribute;
-		if(is_null($value)) {
+
+		if (is_null($value))
+		{
 			return $default;
-		} else {
-			return (string)$value;
+		}
+		else
+		{
+			return (string) $value;
 		}
 	}
-	
+
 	/**
 	 * Loads the CSS files defined in the form, based on its cssfiles attribute
-	 * 
+	 *
+	 * @return  void
+	 *
 	 * @since 2.0
 	 */
 	public function loadCSSFiles()
 	{
 		// Support for CSS files
 		$cssfiles = $this->getAttribute('cssfiles');
-		
-		if (!empty($cssfiles)) {
+
+		if (!empty($cssfiles))
+		{
 			$cssfiles = explode(',', $cssfiles);
-			foreach($cssfiles as $cssfile) {
+
+			foreach ($cssfiles as $cssfile)
+			{
 				FOFTemplateUtils::addCSS(trim($cssfile));
 			}
 		}
-		
+
 		// Support for LESS files
 		$lessfiles = $this->getAttribute('lessfiles');
-		
-		if (!empty($lessfiles)) {
+
+		if (!empty($lessfiles))
+		{
 			$lessfiles = explode(',', $lessfiles);
-			foreach($lessfiles as $def) {
+
+			foreach ($lessfiles as $def)
+			{
 				$parts = explode('||', $def, 2);
 				$lessfile = $parts[0];
 				$alt = (count($parts) > 1) ? trim($parts[1]) : null;
@@ -128,79 +147,88 @@ class FOFForm extends JForm
 			}
 		}
 	}
-	
+
 	/**
 	 * Loads the Javascript files defined in the form, based on its jsfiles attribute
-	 * 
+	 *
+	 * @return  void
+	 *
 	 * @since 2.0
 	 */
 	public function loadJSFiles()
 	{
 		$jsfiles = $this->getAttribute('jsfiles');
-		
-		if(empty($jsfiles)) {
+
+		if (empty($jsfiles))
+		{
 			return;
 		}
-		
+
 		$jsfiles = explode(',', $jsfiles);
-		foreach($jsfiles as $jsfile) {
+
+		foreach ($jsfiles as $jsfile)
+		{
 			FOFTemplateUtils::addJS(trim($jsfile));
 		}
 	}
-	
+
 	/**
 	 * Returns a reference to the protected $data object, allowing direct
 	 * access to and manipulation of the form's data.
-	 * 
+	 *
 	 * @return   JRegistry  The form's data registry
-	 * 
+	 *
 	 * @since 2.0
 	 */
 	public function getData()
 	{
 		return $this->data;
 	}
-	
+
 	/**
 	 * Attaches a FOFModel to this form
-	 * 
-	 * @param   FOFModel  $model  The model to attach to the form
+	 *
+	 * @param   FOFModel  &$model  The model to attach to the form
+	 *
+	 * @return  void
 	 */
 	public function setModel(FOFModel &$model)
 	{
 		$this->model = $model;
 	}
-	
+
 	/**
 	 * Returns the FOFModel attached to this form
-	 * 
+	 *
 	 * @return FOFModel
 	 */
 	public function &getModel()
 	{
 		return $this->model;
 	}
-	
+
 	/**
 	 * Attaches a FOFView to this form
-	 * 
-	 * @param   FOFView  $view  The view to attach to the form
+	 *
+	 * @param   FOFView  &$view  The view to attach to the form
+	 *
+	 * @return  void
 	 */
 	public function setView(FOFView &$view)
 	{
 		$this->view = $view;
 	}
-	
+
 	/**
 	 * Returns the FOFView attached to this form
-	 * 
+	 *
 	 * @return FOFView
 	 */
 	public function &getView()
 	{
 		return $this->view;
 	}
-	
+
 	/**
 	 * Method to get an array of FOFFormHeader objects in the headerset.
 	 *
@@ -215,12 +243,14 @@ class FOFForm extends JForm
 		$elements = $this->findHeadersByGroup();
 
 		// If no field elements were found return empty.
+
 		if (empty($elements))
 		{
 			return $fields;
 		}
 
 		// Build the result array from the found field elements.
+
 		foreach ($elements as $element)
 		{
 			// Get the field groups for the element.
@@ -237,7 +267,7 @@ class FOFForm extends JForm
 
 		return $fields;
 	}
-	
+
 	/**
 	 * Method to get an array of <header /> elements from the form XML document which are
 	 * in a control group by name.
@@ -265,27 +295,26 @@ class FOFForm extends JForm
 		// Get only fields in a specific group?
 		if ($group)
 		{
-
 			// Get the fields elements for a given group.
 			$elements = &$this->findHeader($group);
 
 			// Get all of the field elements for the fields elements.
 			foreach ($elements as $element)
 			{
-
 				// If there are field elements add them to the return result.
 				if ($tmp = $element->xpath('descendant::header'))
 				{
-
 					// If we also want fields in nested groups then just merge the arrays.
 					if ($nested)
 					{
 						$fields = array_merge($fields, $tmp);
 					}
+
 					// If we want to exclude nested groups then we need to check each field.
 					else
 					{
 						$groupNames = explode('.', $group);
+
 						foreach ($tmp as $field)
 						{
 							// Get the names of the groups that the field is in.
@@ -314,8 +343,8 @@ class FOFForm extends JForm
 		}
 
 		return $fields;
-	}	
-	
+	}
+
 	/**
 	 * Method to get a header field represented as a FOFFormHeader object.
 	 *
@@ -346,7 +375,7 @@ class FOFForm extends JForm
 
 		return $this->loadHeader($element, $group, $value);
 	}
-	
+
 	/**
 	 * Method to get a header field represented as an XML element object.
 	 *
@@ -371,7 +400,6 @@ class FOFForm extends JForm
 		// Let's get the appropriate field element based on the method arguments.
 		if ($group)
 		{
-
 			// Get the fields elements for a given group.
 			$elements = &$this->findGroup($group);
 
@@ -393,6 +421,7 @@ class FOFForm extends JForm
 
 			// Use the first correct match in the given group.
 			$groupNames = explode('.', $group);
+
 			foreach ($fields as &$field)
 			{
 				// Get the group names as strings for ancestor fields elements.
@@ -426,6 +455,7 @@ class FOFForm extends JForm
 				{
 					continue;
 				}
+
 				// Found it!
 				else
 				{
@@ -437,7 +467,7 @@ class FOFForm extends JForm
 
 		return $element;
 	}
-	
+
 	/**
 	 * Method to load, setup and return a FOFFormHeader object based on field data.
 	 *
@@ -480,8 +510,8 @@ class FOFForm extends JForm
 		{
 			return false;
 		}
-	}	
-	
+	}
+
 	/**
 	 * Proxy for {@link FOFFormHelper::loadFieldType()}.
 	 *
@@ -496,7 +526,7 @@ class FOFForm extends JForm
 	{
 		return FOFFormHelper::loadFieldType($type, $new);
 	}
-	
+
 	/**
 	 * Proxy for {@link FOFFormHelper::loadHeaderType()}.
 	 *
@@ -511,7 +541,7 @@ class FOFForm extends JForm
 	{
 		return FOFFormHelper::loadHeaderType($type, $new);
 	}
-	
+
 	/**
 	 * Proxy for {@link FOFFormHelper::loadRuleType()}.
 	 *
@@ -527,7 +557,7 @@ class FOFForm extends JForm
 	{
 		return FOFFormHelper::loadRuleType($type, $new);
 	}
-	
+
 	/**
 	 * Proxy for {@link FOFFormHelper::addFieldPath()}.
 	 *

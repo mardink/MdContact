@@ -4,26 +4,31 @@
  * @copyright  Copyright (C) 2010 - 2012 Akeeba Ltd. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
-
 // Protect from unauthorized access
-defined('_JEXEC') or die();
+defined('_JEXEC') or die;
 
 /**
  * Generic field header, with drop down filters based on a SQL query
- * 
- * @since 2.0
+ *
+ * @package  FrameworkOnFramework
+ * @since    2.0
  */
 class FOFFormHeaderFieldsql extends FOFFormHeaderFieldselectable
 {
+	/**
+	 * Create objects for the options
+	 *
+	 * @return  array  The array of option objects
+	 */
 	protected function getOptions()
 	{
 		$options = array();
 
 		// Initialize some field attributes.
-		$key = $this->element['key_field'] ? (string) $this->element['key_field'] : 'value';
-		$value = $this->element['value_field'] ? (string) $this->element['value_field'] : (string) $this->element['name'];
+		$key       = $this->element['key_field'] ? (string) $this->element['key_field'] : 'value';
+		$value     = $this->element['value_field'] ? (string) $this->element['value_field'] : (string) $this->element['name'];
 		$translate = $this->element['translate'] ? (string) $this->element['translate'] : false;
-		$query = (string) $this->element['query'];
+		$query     = (string) $this->element['query'];
 
 		// Get the database object.
 		$db = JFactory::getDBO();

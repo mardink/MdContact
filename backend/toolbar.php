@@ -457,7 +457,7 @@ class MdcontactToolbar extends FOFToolbar
 	/**
 	 * Renders the submenu (toolbar links) for all detected views of this component
 	 */
-	protected function renderSubmenu()
+	public function renderSubmenu()
 	{
 		$views = $this->getMyViews();
 		if (empty($views))
